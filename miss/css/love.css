@@ -1,0 +1,57 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	width: 100%;	/*如果要给背景加颜色或者图片必须把宽度设置为100%。*/
+	background-color: #000;
+}
+.heart {
+	margin: 100px auto;
+	width: 120px;
+	height: 120px;
+	position: relative;
+	animation-name: shake;					/*为 @keyframes 动画规定一个名称*/
+	animation-duration: 0.5s;				/*定义动画完成一个周期所需要的时间，以秒或毫秒计。*/
+	animation-iteration-count: infinite;	/*定义动画的播放次数。infinite:无限次*/
+}
+.heart div {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: #f00;
+	animation-name: shadow;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+}
+.topLeft,.topRight {
+	border-radius: 100px 100px 0 0;		/*div左右的圆度*/
+}
+.topLeft {
+	transform: translate(-50px,0) rotate(-45deg);
+	/*transform：该属性允许我们对元素进行旋转、缩放、移动或倾斜。
+			   translate:移动位置，rotate:旋转角度。*/
+}
+.topRight {
+	transform: translate(50px,0) rotate(45deg);
+}
+.bottom {
+	transform: translate(0,64px) rotate(45deg) scale(.9,.9);		/*scale:定义 2D 缩放转换。*/
+}
+
+/*定义动画*/
+@keyframes shake {
+	from {
+		transform:scale(.9,.9);
+	}
+	to {
+		transform:scale(1.1,1.1);
+	}
+}
+@keyframes shadow {
+	from {
+	}
+	to {
+		box-shadow:0px 0px 50px red;	/*阴影*/
+	}
+}
